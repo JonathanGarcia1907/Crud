@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insercion</title>
+    <link rel="stylesheet" href="./css/estiloInsercion.css">
+</head>
+
+<!-- Codigo sacado de Codepen-->
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="lic_details">
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form id="lic_details_form" method="post">
+    <h3>Generador Coches</h3>
+    <label for="name">Marca</label>
+    <input type="text" placeholder="Seleccionar Marca" id="name" required>
+    <label for="product">Modelo</label>
+    <div class="dropdown">
+      <div class="select">
+        <span>Seleccionar Modelo</span>
+        <i class="fa fa-chevron-left"></i>
+      </div>
+      <input type="hidden" name="product" id="product">
+      <ul class="dropdown-menu">
+        <li id="Product1">Product1</li>
+        <li id="Product2">Product2</li>
+        <li id="Product3">Product3</li>
+        <li id="Product4">Product4</li>
+      </ul>
+    </div>
+    <label for="maxUsagePerDay">Cantidad Disponible</label>
+    <input type="number" placeholder="17" id="maxUsagePerDay">
+    <label for="validFrom">Año Matriculación</label>
+    <input type="date" placeholder="10/Mar/2023 14:57:22" id="validFrom" required>
+    <label for="email">Email</label>
+    <input type="email" placeholder="johnDoe@example.com" id="email" required>
+    <label for="passwd">Contraseña</label>
+    <input type="password" placeholder="Introduce Contraseña" id="passwd" required>
+    <button onclick="openForm(event)">Generate</button>
+  </form>
+  <div id="otpForm">
+    <form action="/action_page.php" method="post">
+      <h3>Enter TOTP</h3>
+      <label for="totp">TOTP</label>
+      <input type="number" placeholder="46XX" id="totp" step="0.01" required>
+
+      <!-- Add hidden input fields for the form data -->
+      <input type="hidden" name="name" id="nameInput" value="">
+      <input type="hidden" name="product" id="productInput" value="">
+      <input type="hidden" name="maxUsagePerDay" id="maxUsagePerDayInput" value="">
+      <input type="hidden" name="validFrom" id="validFromInput" value="">
+      <input type="hidden" name="email" id="emailInput" value="">
+      <input type="hidden" name="passwd" id="passwdInput" value="">
+      <input type="submit" value="Verify"></input>
+    </form>
+  </div>
+  <div id="dialogoverlay">
+    <div class="alert_box">
+      <div class="close-btn">&times;</div>
+      <h1></h1>
+      <p></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
