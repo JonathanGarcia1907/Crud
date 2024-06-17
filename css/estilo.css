@@ -2,130 +2,207 @@
 /*                                                            */
 /**************************************************************/
 
-/* estilo sacado de codepen */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
+/* estilo sacado de codepen y modificado */
+/* Estilo para el Login */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: url("../Img/Loginfondo.jfif") no-repeat;
-
-  background-position: center;
+  height: 100vh;
+  background-image: url('../img/Insercion.jpg');
   background-size: cover;
+  background-position: center;
+  margin: 0;
 }
 
 .wrapper {
-  width: 420px;
-  background-color: transparent;
-  color: #fff;
-  border-radius: 10px;
-  padding: 30px 40px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.wrapper h1 {
-  font-size: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
   text-align: center;
 }
 
-.wrapper .input-box {
+.input-box {
   position: relative;
-  width: 100%;
-  height: 50px;
-  margin: 30px 0;
+  margin-bottom: 15px;
 }
 
 .input-box input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 10px 15px;
   width: 100%;
-  height: 100%;
-  background-color: transparent;
-  border: none;
+  border-radius: 5px;
   outline: none;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 40px;
-  font-size: 16px;
-  color: #fff;
-  padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder {
-  color: #fff;
 }
 
 .input-box i {
   position: absolute;
-  right: 20px;
   top: 50%;
+  right: 10px;
   transform: translateY(-50%);
-  font-size: 20px;
-}
-
-.wrapper .remember-forgot {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  margin: -15px 0 15px;
-}
-
-.remember-forgot label input {
-  accent-color: #fff;
-  margin-right: 3px;
-}
-
-.remember-forgot a {
   color: #fff;
-  text-decoration: none;
 }
 
-.remember-forgot a:hover {
-  text-decoration: underline;
-  color: #568b8c;
+.form-check-label, .register-link a, .forgot-link {
+  color: #fff;
 }
 
-.wrapper .btn {
+.invalid-feedback {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 5px;
+  display: none;
+}
+
+/* Estilos para la Tabla del listado */
+.table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
   width: 100%;
-  height: 45px;
-  background-color: #fff;
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+  margin: 20px auto;
+}
+
+.table * {
+  position: relative;
+}
+
+.table td, .table th {
+  padding: 12px;
+}
+
+.table .indice {
+  height: 60px;
+  background: #ffed86;
   font-size: 16px;
-  color: #333;
-  font-weight: 600;
-  transition: all 0.8s ease-out;
 }
 
-.wrapper .btn:hover {
-  background-color: #568b8c;
-  color: #fff;
+.table tbody tr {
+  height: 48px;
+  border-bottom: 1px solid #e3f1d5;
 }
 
-.wrapper .register-link {
-  font-size: 14px;
+.table tbody tr:last-child {
+  border: 0;
+}
+
+.table td, .table th {
+  text-align: left;
+}
+
+.table td.l, .table th.l {
+  text-align: right;
+}
+
+.table td.c, .table th.c {
   text-align: center;
-  margin: 20px 0 15px;
 }
 
-.register-link p a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
+.table td.r, .table th.r {
+  text-align: center;
 }
 
-.register-link p a:hover {
-  text-decoration: underline;
-  color: #568b8c;
+@media screen and (max-width: 35.5em) {
+  .table {
+      display: block;
+  }
+  .table > *, .table tr, .table td, .table th {
+      display: block;
+  }
+  .table .indice {
+      display: none;
+  }
+  .table thead {
+      display: none;
+  }
+  .table tbody tr {
+      height: auto;
+      padding: 8px 0;
+  }
+  .table tbody tr td {
+      padding-left: 45%;
+      margin-bottom: 12px;
+  }
+  .table tbody tr td:last-child {
+      margin-bottom: 0;
+  }
+  .table tbody tr td:before {
+      position: absolute;
+      font-weight: 700;
+      width: 40%;
+      left: 10px;
+      top: 0;
+  }
+  .table tbody tr td:nth-child(1):before {
+      content: "MARCA";
+  }
+  .table tbody tr td:nth-child(2):before {
+      content: "MODELO";
+  }
+  .table tbody tr td:nth-child(3):before {
+      content: "CANTIDAD";
+  }
+  .table tbody tr td:nth-child(4):before {
+      content: "AÑO MATRICULACIÓN";
+  }
+  .table tbody tr td:nth-child(5):before {
+      content: "EMAIL";
+  }
+  .table tbody tr td:nth-child(6):before {
+      content: "CONTRASEÑA";
+  }
+  .table tbody tr td:nth-child(7):before {
+      content: "ACCIONES";
+  }
+}
+
+/* Estilo para el formulario de inserción y el de modificaciòn */
+
+.lic_details {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; 
+}
+
+#otpForm {
+  display: none;
+}
+
+#dialogoverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert_box {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.alert_box .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.form-check-label{
+  color: gray
 }

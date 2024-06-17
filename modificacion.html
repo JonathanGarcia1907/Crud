@@ -3,69 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificacion</title>
-    <link rel="stylesheet" href="./css/estiloInsercion.css">
+    <title>Modificación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
-
-<!-- Codigo sacado de Codepen-->
+<!-- Codigo sacado de Codepen y modificado posteriormente-->
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<div class="lic_details">
-  <div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-  <form id="lic_details_form" method="post">
-    <h3>Modificacion Coches</h3>
-    <label for="name">Marca</label>
-    <input type="text" placeholder="Bmw" id="name" required>
-    <label for="product">Modelo</label>
-    <div class="dropdown">
-      <div class="select">
-        <span>116d</span>
-        <i class="fa fa-chevron-left"></i>
-      </div>
-      <input type="hidden" name="product" id="product">
-      <ul class="dropdown-menu">
-        <li id="Product1">Product1</li>
-        <li id="Product2">Product2</li>
-        <li id="Product3">Product3</li>
-        <li id="Product4">Product4</li>
-      </ul>
-    </div>
-    <label for="maxUsagePerDay">Cantidad Disponible</label>
-    <input type="number" placeholder="8" id="maxUsagePerDay">
-    <label for="validFrom">Año Matriculación</label>
-    <input type="date" placeholder="10/Mar/2023" id="validFrom" required>
-    <label for="email">Email</label>
-    <input type="email" placeholder="johnDoe@example.com" id="email" required>
-    <label for="passwd">Contraseña</label>
-    <input type="password" placeholder="Introduce Contraseña" id="passwd" required>
-    <button onclick="openForm(event)">Generate</button>
-  </form>
-  <div id="otpForm">
-    <form action="/action_page.php" method="post">
-      <h3>Enter TOTP</h3>
-      <label for="totp">TOTP</label>
-      <input type="number" placeholder="46XX" id="totp" step="0.01" required>
+    <div class="container my-5 d-flex justify-content-center align-items-center min-vh-100">
+        <div class="lic_details">
+            <form id="lic_details_form" method="post" class="bg-light p-5 rounded shadow">
+                <h3 class="text-center mb-4">Modificar Coche</h3>
+                <div class="mb-3">
+                    <label for="brand" class="form-label">Marca</label>
+                    <select class="form-select" id="brand" required>
+                        <option value="1" selected>Volkswagen</option>
+                        <option value="2">Toyota</option>
+                        <option value="3">Honda</option>
+                        <option value="4">Ford</option>
+                        <option value="5">Chevrolet</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor, selecciona una marca.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="model" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" placeholder="Seleccionar Modelo" id="model" value="Polo" required>
+                    <div class="invalid-feedback">El modelo debe tener al menos 3 caracteres.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="maxUsagePerDay" class="form-label">Cantidad Disponible</label>
+                    <input type="number" class="form-control" placeholder="17" id="maxUsagePerDay" value="9" required>
+                </div>
+                <div class="mb-3">
+                    <label for="validFrom" class="form-label">Año Matriculación</label>
+                    <input type="date" class="form-control" id="validFrom" value="2018-05-12" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="johnDoe@example.com" id="email" value="johnDoe@example.com" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="passwd" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Introduce Contraseña" id="passwd" value="contraseñaEjemplo10" readonly>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-dark">Tipo de Vehículo</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="vehicleType" id="suv" value="SUV" required>
+                        <label class="form-check-label" for="suv">SUV</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="vehicleType" id="todoterreno" value="Todoterreno">
+                        <label class="form-check-label" for="todoterreno">Todoterreno</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="vehicleType" id="furgoneta" value="Furgoneta">
+                        <label class="form-check-label" for="furgoneta">Furgoneta</label>
+                    </div>
+                    <div class="invalid-feedback d-none">Por favor, selecciona un tipo de vehículo.</div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="receiveInfo" required>
+                        <label class="form-check-label" for="receiveInfo">
+                            ¿Deseas recibir información?
+                        </label>
+                        <div class="invalid-feedback">Debes aceptar recibir información.</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Modificar</button>
+            </form>
 
-      <!-- Add hidden input fields for the form data -->
-      <input type="hidden" name="name" id="nameInput" value="">
-      <input type="hidden" name="product" id="productInput" value="">
-      <input type="hidden" name="maxUsagePerDay" id="maxUsagePerDayInput" value="">
-      <input type="hidden" name="validFrom" id="validFromInput" value="">
-      <input type="hidden" name="email" id="emailInput" value="">
-      <input type="hidden" name="passwd" id="passwdInput" value="">
-      <input type="submit" value="Verify"></input>
-    </form>
-  </div>
-  <div id="dialogoverlay">
-    <div class="alert_box">
-      <div class="close-btn">&times;</div>
-      <h1></h1>
-      <p></p>
+            <div id="otpForm" class="d-none mt-5">
+                <form action="/action_page.php" method="post" class="bg-light p-5 rounded shadow">
+                    <h3 class="text-center mb-4">Enter TOTP</h3>
+                    <div class="mb-3">
+                        <label for="totp" class="form-label">TOTP</label>
+                        <input type="number" class="form-control" placeholder="46XX" id="totp" step="0.01" required>
+                    </div>
+                    <!-- Add hidden input fields for the form data -->
+                    <input type="hidden" name="brand" id="brandInput" value="">
+                    <input type="hidden" name="model" id="modelInput" value="">
+                    <input type="hidden" name="maxUsagePerDay" id="maxUsagePerDayInput" value="">
+                    <input type="hidden" name="validFrom" id="validFromInput" value="">
+                    <input type="hidden" name="email" id="emailInput" value="">
+                    <input type="hidden" name="passwd" id="passwdInput" value="">
+                    <input type="submit" value="Verify" class="btn btn-primary w-100">
+                </form>
+            </div>
+
+            <div id="dialogoverlay" class="d-none">
+                <div class="alert_box bg-light p-4 rounded shadow">
+                    <div class="close-btn">&times;</div>
+                    <h1></h1>
+                    <p></p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/validacion.js"></script>
 </body>
 </html>
